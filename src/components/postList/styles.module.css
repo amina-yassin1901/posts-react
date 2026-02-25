@@ -1,11 +1,17 @@
 .list {
-  background-color: #7d9fff;
-  padding: 60px 114px 51px;
   display: flex;
   flex-direction: column;
   gap: 32px;
   justify-content: center;
   align-items: center;
+}
+.container {
+  padding: 60px 114px 51px;
+  background-color: #7d9fff;
+  max-width: 1043px;
+  width: 100%;
+  min-height: 884px;
+  margin-bottom: 102px;
 }
 .title {
   font-size: 36px;

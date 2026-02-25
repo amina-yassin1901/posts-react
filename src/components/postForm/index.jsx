@@ -1,8 +1,9 @@
 import styles from "./styles.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import logo from "/src/assets/userlogo.svg";
 const BASE_URL = "https://699eb30078dda56d396b07fe.mockapi.io/";
-function PostForm() {
+function PostForm({ posts, setPosts, setPage }) {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
@@ -14,6 +15,8 @@ function PostForm() {
       .post(`${BASE_URL}posts`, postData)
       .then((response) => {
         console.log(response);
+        setPosts([response.data, ...posts]);
+        setPage(1);
         reset();
       })
       .catch((error) => {
@@ -22,28 +25,39 @@ function PostForm() {
   };
   return (
     <div className={styles.container}>
-      <h2 className={styles.titel}>Написать пост</h2>
+      <h2 className={styles.title}>Написать пост</h2>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <div className={styles.group}>
-          <label htmlFor="title">Заголовок</label>
-          <input
-            className={styles.input}
-            {...register("title", { required: true })}
-            type="text"
-            id="title"
-            placeholder="Заголовок"
-          />
+        <img src={logo}></img>
+        <div className={styles.containersecond}>
+          <div className={styles.group}>
+            <label className={styles.label} htmlFor="title">
+              Заголовок
+            </label>
+            <input
+              className={styles.input}
+              {...register("title", { required: true })}
+              type="text"
+              id="title"
+              placeholder="Заголовок"
+            />
+          </div>
+          <div className={styles.group}>
+            <label className={styles.label} htmlFor="text">
+              Текст поста
+            </label>
+            <textarea
+              className={styles.input}
+              {...register("text", { required: true })}
+              name="text"
+              id="text"
+              placeholder="Введите текст..."
+            ></textarea>
+          </div>
+          <button className={styles.btn} type="submit">
+            {" "}
+            Публикация
+          </button>
         </div>
-        <div className={styles.group}>
-          <label htmlFor="text">Текст поста</label>
-          <textarea
-            {...register("text", { required: true })}
-            name="text"
-            id="text"
-            placeholder="Введите текст..."
-          ></textarea>
-        </div>
-        <button type="submit"> Публикация</button>
       </form>
     </div>
   );

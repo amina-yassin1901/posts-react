@@ -1,7 +1,7 @@
 import userLogo from "/src/assets/userlogo.svg";
 import styles from "./styles.module.css";
 
-function Post({ title, text, id }) {
+function Post({ title, text, id, deleteOne }) {
   return (
     <li className={styles.item}>
       <div className={styles.logo}>
@@ -15,7 +15,9 @@ function Post({ title, text, id }) {
       <div className={styles.btnContainer}>
         <p>{id} post</p>
 
-        <button className={styles.btn}>Delete</button>
+        <button onClick={deleteOne} className={styles.btn}>
+          Delete
+        </button>
       </div>
     </li>
   );
