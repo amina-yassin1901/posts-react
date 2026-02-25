@@ -1,0 +1,13 @@
+.container {
+  background-color: #7d9fff;
+  padding: 60px 111px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  margin-bottom: 124px;
+  text-align: center;
+}
