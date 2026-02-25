@@ -1,8 +1,25 @@
 .list {
   background-color: #7d9fff;
   padding: 60px 114px 51px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
 }
 .title {
   font-size: 36px;
   margin-bottom: 124px;
+  text-align: center;
+}
+.btn {
+  background-color: rgba(63, 92, 192, 0.8);
+  border-radius: 15px;
+  padding: 10px 28px;
+}
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }

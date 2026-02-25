@@ -38,14 +38,16 @@ function PostList() {
           />
         );
       })}
-      <div>
+      <div className={styles.btnContainer}>
         <button
+          className={styles.btn}
           onClick={() => setPage((prev) => prev - 1)}
           disabled={page === 1}
         >
           Prev
         </button>
         <button
+          className={styles.btn}
           onClick={() => setPage((prev) => prev + 1)}
           disabled={endIndex >= posts.length}
         >
